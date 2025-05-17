@@ -359,17 +359,9 @@ class AssetViewSet(viewsets.ModelViewSet):
     })
 
 
-
-
- 
-
-
-
-
-
-
-
 class PriceHistoryViewSet(viewsets.ModelViewSet):
     queryset = PriceHistory.objects.all()
     serializer_class = PriceHistorySerializer
     filterset_fields = ["asset"]
+
+

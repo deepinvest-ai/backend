@@ -9,7 +9,10 @@ def sma(series, length=50):
     return None if result is None else result.iloc[-1]
 
 def rsi(series, length=14):
-    return ta.rsi(series, length=length).iloc[-1]
+    result = ta.rsi(series, length=length)
+    if result is not None and not result.empty:
+        return result.iloc[-1]
+    return None  # veya 0, ya da raise Exception("RSI hesaplanamadı")
 
 def macd(series, fast=12, slow=26, signal=9):
     out = ta.macd(series, fast=fast, slow=slow, signal=signal)
